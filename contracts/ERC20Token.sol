@@ -16,4 +16,12 @@ contract OlaToken is ERC20, Ownable {
     function burn(address burner, uint256 amount) public {
         _burn(burner, amount);
     }
+
+    function transfer(
+        address to,
+        uint256 value
+    ) public override returns (bool) {
+        _transfer(msg.sender, to, value);
+        return true;
+    }
 }
